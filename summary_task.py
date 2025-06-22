@@ -7,7 +7,7 @@ import json
 import re
 
 # 1. Login to HuggingFace (must be BEFORE loading models)
-hf_token = "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"
+hf_token = "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"
 login(token=hf_token)
 
 def load_quantized_model(model_name: str, load_in_4bit: bool = True,
