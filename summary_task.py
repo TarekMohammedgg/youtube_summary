@@ -5,10 +5,15 @@ from pydantic import BaseModel, Field
 from typing import List
 import json
 import re
+import os
+from huggingface_hub import login
 
-# 1. Login to HuggingFace (must be BEFORE loading models)
-hf_token = "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"
+hf_token = os.environ.get("HF_TOKEN", "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")
+if not hf_token:
+    raise ValueError("Hugging Face token not found in environment variable 'HF_TOKEN'. Please set it in your Colab notebook or environment.")
+
 login(token=hf_token)
+
 
 def load_quantized_model(model_name: str, load_in_4bit: bool = True,
                          use_double_quant: bool = True,
