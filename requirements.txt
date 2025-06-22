@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+yt-dlp
+librosa
+transformers
+bitsandbytes
+torch
+torchvision
+torchaudio
+pydantic
+pyngrok
+faster_whisper
+langchain-text-splitters
