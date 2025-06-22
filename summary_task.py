@@ -8,7 +8,7 @@ import re
 import os
 from huggingface_hub import login
 
-hf_token = os.environ.get("HF_TOKEN", "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")
+hf_token = os.environ.get("HF_TOKEN", "")
 if not hf_token:
     raise ValueError("Hugging Face token not found in environment variable 'HF_TOKEN'. Please set it in your Colab notebook or environment.")
 
