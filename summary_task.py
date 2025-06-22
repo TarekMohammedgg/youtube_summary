@@ -1,9 +1,14 @@
+from huggingface_hub import login
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from pydantic import BaseModel, Field
 from typing import List
 import json
 import re
+
+# 1. Login to HuggingFace (must be BEFORE loading models)
+hf_token = "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"
+login(token=hf_token)
 
 def load_quantized_model(model_name: str, load_in_4bit: bool = True,
                          use_double_quant: bool = True,
