@@ -1,0 +1,308 @@
+[
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "download_audio",
+        "importPath": "transcribe_task",
+        "description": "transcribe_task",
+        "isExtraImport": true,
+        "detail": "transcribe_task",
+        "documentation": {}
+    },
+    {
+        "label": "transcribe_with_faster_whisper",
+        "importPath": "transcribe_task",
+        "description": "transcribe_task",
+        "isExtraImport": true,
+        "detail": "transcribe_task",
+        "documentation": {}
+    },
+    {
+        "label": "SummaryModel",
+        "importPath": "summary_task",
+        "description": "summary_task",
+        "isExtraImport": true,
+        "detail": "summary_task",
+        "documentation": {}
+    },
+    {
+        "label": "SummaryTemplate",
+        "importPath": "summary_task",
+        "description": "summary_task",
+        "isExtraImport": true,
+        "detail": "summary_task",
+        "documentation": {}
+    },
+    {
+        "label": "SummaryGenerate",
+        "importPath": "summary_task",
+        "description": "summary_task",
+        "isExtraImport": true,
+        "detail": "summary_task",
+        "documentation": {}
+    },
+    {
+        "label": "cohere_tokenizer",
+        "importPath": "summary_task",
+        "description": "summary_task",
+        "isExtraImport": true,
+        "detail": "summary_task",
+        "documentation": {}
+    },
+    {
+        "label": "cohere_model",
+        "importPath": "summary_task",
+        "description": "summary_task",
+        "isExtraImport": true,
+        "detail": "summary_task",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "api",
+        "description": "api",
+        "isExtraImport": true,
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "torch",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "torch",
+        "description": "torch",
+        "detail": "torch",
+        "documentation": {}
+    },
+    {
+        "label": "AutoModelForCausalLM",
+        "importPath": "transformers",
+        "description": "transformers",
+        "isExtraImport": true,
+        "detail": "transformers",
+        "documentation": {}
+    },
+    {
+        "label": "AutoTokenizer",
+        "importPath": "transformers",
+        "description": "transformers",
+        "isExtraImport": true,
+        "detail": "transformers",
+        "documentation": {}
+    },
+    {
+        "label": "BitsAndBytesConfig",
+        "importPath": "transformers",
+        "description": "transformers",
+        "isExtraImport": true,
+        "detail": "transformers",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "glob",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "glob",
+        "description": "glob",
+        "detail": "glob",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "yt_dlp",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yt_dlp",
+        "description": "yt_dlp",
+        "detail": "yt_dlp",
+        "documentation": {}
+    },
+    {
+        "label": "WhisperModel",
+        "importPath": "faster_whisper",
+        "description": "faster_whisper",
+        "isExtraImport": true,
+        "detail": "faster_whisper",
+        "documentation": {}
+    },
+    {
+        "label": "VideoInput",
+        "kind": 6,
+        "importPath": "api",
+        "description": "api",
+        "peekOfCode": "class VideoInput(BaseModel):\n    url: str\n@app.post(\"/summarize_video\")\ndef summarize_video(input: VideoInput):\n    try:\n        audio_path = download_audio(input.url)\n        if not audio_path:\n            raise HTTPException(status_code=500, detail=\"Download failed.\")\n        text_article = transcribe_with_faster_whisper(audio_path)\n        template = SummaryTemplate(text_article, SummaryModel)",
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "summarize_video",
+        "kind": 2,
+        "importPath": "api",
+        "description": "api",
+        "peekOfCode": "def summarize_video(input: VideoInput):\n    try:\n        audio_path = download_audio(input.url)\n        if not audio_path:\n            raise HTTPException(status_code=500, detail=\"Download failed.\")\n        text_article = transcribe_with_faster_whisper(audio_path)\n        template = SummaryTemplate(text_article, SummaryModel)\n        summary = SummaryGenerate(template, cohere_tokenizer, cohere_model, max_new_tokens=len(text_article) + 100)\n        return {\"summary\": summary[\"Summary\"]}\n    except Exception as e:",
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "api",
+        "description": "api",
+        "peekOfCode": "app = FastAPI()\nclass VideoInput(BaseModel):\n    url: str\n@app.post(\"/summarize_video\")\ndef summarize_video(input: VideoInput):\n    try:\n        audio_path = download_audio(input.url)\n        if not audio_path:\n            raise HTTPException(status_code=500, detail=\"Download failed.\")\n        text_article = transcribe_with_faster_whisper(audio_path)",
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "SummaryModel",
+        "kind": 6,
+        "importPath": "summary_task",
+        "description": "summary_task",
+        "peekOfCode": "class SummaryModel(BaseModel):\n    Summary: List[str] = Field(..., min_length=5, max_length=300, description=\"the most key points of the content\")\ndef SummaryTemplate(text_article: str, summary_model):\n    return [\n        {\n            \"role\": \"system\",\n            \"content\": \"\\n\".join([\n                \"You are an NLP data parser.\",\n                \"You will be provided text (which may be in Arabic) and a Pydantic schema.\",\n                \"If the text is not in English, translate it to English first.\",",
+        "detail": "summary_task",
+        "documentation": {}
+    },
+    {
+        "label": "load_quantized_model",
+        "kind": 2,
+        "importPath": "summary_task",
+        "description": "summary_task",
+        "peekOfCode": "def load_quantized_model(model_name: str, load_in_4bit: bool = True,\n                         use_double_quant: bool = True,\n                         quant_type: str = \"nf4\",\n                         compute_dtype=torch.bfloat16,\n                         auth_token: bool = True):\n    bnb_config = BitsAndBytesConfig(\n        load_in_4bit=load_in_4bit,\n        bnb_4bit_use_double_quant=use_double_quant,\n        bnb_4bit_quant_type=quant_type,\n        bnb_4bit_compute_dtype=compute_dtype,",
+        "detail": "summary_task",
+        "documentation": {}
+    },
+    {
+        "label": "SummaryTemplate",
+        "kind": 2,
+        "importPath": "summary_task",
+        "description": "summary_task",
+        "peekOfCode": "def SummaryTemplate(text_article: str, summary_model):\n    return [\n        {\n            \"role\": \"system\",\n            \"content\": \"\\n\".join([\n                \"You are an NLP data parser.\",\n                \"You will be provided text (which may be in Arabic) and a Pydantic schema.\",\n                \"If the text is not in English, translate it to English first.\",\n                \"Your response MUST be a single valid JSON object following the provided schema, and nothing else.\",\n                \"The summary must be in English and focus on key points and technical or useful information.\",",
+        "detail": "summary_task",
+        "documentation": {}
+    },
+    {
+        "label": "extract_first_json",
+        "kind": 2,
+        "importPath": "summary_task",
+        "description": "summary_task",
+        "peekOfCode": "def extract_first_json(text):\n    stack = []\n    start = None\n    for i, c in enumerate(text):\n        if c == '{':\n            if not stack:\n                start = i\n            stack.append(c)\n        elif c == '}':\n            if stack:",
+        "detail": "summary_task",
+        "documentation": {}
+    },
+    {
+        "label": "SummaryGenerate",
+        "kind": 2,
+        "importPath": "summary_task",
+        "description": "summary_task",
+        "peekOfCode": "def SummaryGenerate(message, tokenizer, model, max_new_tokens=1024):\n    input_ids = tokenizer.apply_chat_template(\n        message,\n        tokenize=True,\n        add_generation_prompt=True,\n        return_tensors=\"pt\",\n    ).to(model.device)\n    gen_tokens = model.generate(\n        input_ids,\n        max_new_tokens=max_new_tokens,",
+        "detail": "summary_task",
+        "documentation": {}
+    },
+    {
+        "label": "cohere_model_name",
+        "kind": 5,
+        "importPath": "summary_task",
+        "description": "summary_task",
+        "peekOfCode": "cohere_model_name = \"CohereForAI/c4ai-command-r7b-arabic-02-2025\"\ncohere_model, cohere_tokenizer = load_quantized_model(cohere_model_name)\nclass SummaryModel(BaseModel):\n    Summary: List[str] = Field(..., min_length=5, max_length=300, description=\"the most key points of the content\")\ndef SummaryTemplate(text_article: str, summary_model):\n    return [\n        {\n            \"role\": \"system\",\n            \"content\": \"\\n\".join([\n                \"You are an NLP data parser.\",",
+        "detail": "summary_task",
+        "documentation": {}
+    },
+    {
+        "label": "download_audio",
+        "kind": 2,
+        "importPath": "transcribe_task",
+        "description": "transcribe_task",
+        "peekOfCode": "def download_audio(url, out_path=\"video.wav\"):\n    # Remove old .wav files\n    for f in glob.glob(\"*.wav\"):\n        os.remove(f)\n    ydl_opts = {\n        'format': 'bestaudio/best',\n        'postprocessors': [{\n            'key': 'FFmpegExtractAudio',\n            'preferredcodec': 'wav',\n            'preferredquality': '192',",
+        "detail": "transcribe_task",
+        "documentation": {}
+    },
+    {
+        "label": "transcribe_with_faster_whisper",
+        "kind": 2,
+        "importPath": "transcribe_task",
+        "description": "transcribe_task",
+        "peekOfCode": "def transcribe_with_faster_whisper(audio_path):\n    segments, info = whisper_model.transcribe(audio_path, beam_size=1)\n    text = \" \".join([segment.text.strip() for segment in segments])\n    return text",
+        "detail": "transcribe_task",
+        "documentation": {}
+    },
+    {
+        "label": "whisper_model",
+        "kind": 5,
+        "importPath": "transcribe_task",
+        "description": "transcribe_task",
+        "peekOfCode": "whisper_model = WhisperModel(\"small\", device=\"cuda\" if torch.cuda.is_available() else \"cpu\")\ndef download_audio(url, out_path=\"video.wav\"):\n    # Remove old .wav files\n    for f in glob.glob(\"*.wav\"):\n        os.remove(f)\n    ydl_opts = {\n        'format': 'bestaudio/best',\n        'postprocessors': [{\n            'key': 'FFmpegExtractAudio',\n            'preferredcodec': 'wav',",
+        "detail": "transcribe_task",
+        "documentation": {}
+    }
+]
